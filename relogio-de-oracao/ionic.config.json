@@ -1,0 +1,7 @@
+{
+  "name": "Relógio de oração",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

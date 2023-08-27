@@ -1,0 +1,41 @@
+ion-toolbar {
+  --color: #ffffff;
+  --background: #0d2c6c;
+}
+.title-horas{
+  margin: auto;
+  margin-left: 75px;
+  font-weight: bold;
+}
+.choose-hours{
+    display: block;
+    margin-left: 20px;
+}
+.title-horario{
+  margin: 0 auto;
+}
+.selecteditem{
+  background: #2db7e4;
+  width: 52px;  
+  padding:6px 5px;
+  }
+  .selectedfalse{
+    background: none;
+    
+  }
+  .horas-item{
+    font-size: 19px;
+    padding: 10px;
+  }
+  .day-choose{
+    position: relative;
+    left: 80px;
+  }
+  .day-disable{
+    padding: 15px;
+    position: relative;
+    left: 10px;
+  }
+  .day-disable b{
+    text-align: justify;
+  }

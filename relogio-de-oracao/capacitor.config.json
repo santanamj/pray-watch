@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Relógio de oração",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,48 @@
+
+
+<ion-content class='background' [fullscreen]="true">  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="user?.role == 'lider' || user?.role == 'geral'" >
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="title">Horario</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-item lines="none" class="select-igrela">
+    <ion-label> Selecionar dia</ion-label>
+    <ion-select name="dia" (ionChange)="onChange($event)" >      
+      <ion-select-option *ngFor="let option of  dias" [value]="option.title">{{option.title}}</ion-select-option>
+    </ion-select>     
+  </ion-item>
+ 
+  <ion-item *ngFor="let item of agendas; let i = index">
+    
+  <ion-card-header (click)=selected(item) [ngClass]="item?._id === selecteUser?._id ? 'selecteditem' : 'selectedfalse'">
+    <ion-card-subtitle class="nome">Nome: {{item?.name}}</ion-card-subtitle>
+    <ion-card-subtitle>Dia: {{item?.dia}}</ion-card-subtitle>
+    <ion-card-subtitle>Horas: {{item?.hora}}:00</ion-card-subtitle>
+    <ion-card-subtitle>Telefone: {{item?.phone}}</ion-card-subtitle>
+  </ion-card-header>
+  </ion-item>
+  
+  <div *ngIf="selecteUser" class="button-remove">
+    <ion-button (click)="deleteAgenda()"  color="warning" expand="full">Remover</ion-button>
+</div>
+</div> 
+
+<div *ngIf="user" >
+  <ion-card-header >
+    <ion-card-title class="title-orador">Ore pelo seus irmãos</ion-card-title>
+  </ion-card-header>
+  <ion-card *ngFor="let ore of irmaopray" class="orador-irmao">    
+    <ion-card-subtitle class="nome">Nome: {{ore?.name}}</ion-card-subtitle>
+    <ion-card-subtitle color="tertiary">Pedido: {{ore?.pedido}}</ion-card-subtitle>
+    <ion-card-subtitle>Dia: {{ore?.dia}}</ion-card-subtitle>
+    <ion-card-subtitle>Horas: {{ore?.hora}}:00</ion-card-subtitle>
+    <ion-card-subtitle>Telefone: {{ore?.phone}}</ion-card-subtitle>
+  </ion-card>
+</div>
+
+</ion-content>

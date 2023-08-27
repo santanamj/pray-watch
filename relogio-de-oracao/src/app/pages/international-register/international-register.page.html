@@ -1,0 +1,72 @@
+
+
+<ion-content class='background' padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="titulo">Cadastro de usuário</ion-card-title>
+      <ion-card-subtitle class="titulo">Número internacional</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <!-- <div class="img-init">    
+    <ion-img src="./assets/relogio-de-oraçao.jpg"></ion-img>
+  </div> -->
+  <div class="user-role">
+    <ion-card>
+  <form [formGroup]="form" (submit)="onRegisterSubmit()">
+
+    <!-- Name Input -->
+    <ion-item class="form-group" lines="none">        
+        <input type="text" name="name" class="dados-form"  autocomplete="disable"  placeholder="*Nome do usuário" formControlName="name" />
+     </ion-item>
+     <ion-item lines="none" class="select-igrela">
+      <ion-label> Selecionar Igreja</ion-label>
+      <ion-select name="igreja" (ionChange)="onChange($event)" >      
+        <ion-select-option *ngFor="let option of  igrejas" [value]="option">{{option}}</ion-select-option>
+      </ion-select>     
+    </ion-item>
+    <ion-item  class="form-group" lines="none" *ngIf="outraIgreja">
+      <input type="text" placeholder="Nome da igreja" name="igreja"
+      formControlName="igreja" class="dados-form"  (blur)="nomeoutraIgreja()" autocomplete="disable" />
+    </ion-item>
+    <!-- Phone Input -->
+    <ion-item class="form-group" lines="none">       
+        <input type="text" name="phone" #telefone mask="(000) 000-0000" placeholder="*Celular" 
+        formControlName="phone" class="dados-form"  (keyup)="checkPhone()" autocomplete="disable">  
+      </ion-item>
+     <ion-item *ngIf="errorTelefone">
+      <span class="tel-exist" >Telefone já existe</span>
+     </ion-item>
+    <!-- Password Input -->
+    <ion-item class="form-group" lines="none">
+    
+      <div [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}"></div>
+        <input type="password" name="password" autocomplete="disable" 
+        class="dados-form" placeholder="*Senha" formControlName="password" />
+        <!-- Validation -->
+
+    </ion-item>
+
+    <!-- Confirm Password Input -->
+    <ion-item class="form-group" lines="none">
+     
+      <div class="repeat-senha">
+
+        <!-- Validation -->
+        <ul class="help-block">
+          <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">*Items obrigatório</li>
+          <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">Senhas diferentes</li>
+        </ul>
+        <input type="password" name="confirm" autocomplete="disable" autocomplete="off" 
+        placeholder="*Confirmar Senha" formControlName="confirm"  class="dados-form"/>
+      </div>
+    </ion-item>
+    <!-- Submit Input -->
+    
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" [disabled]="!form.valid || !phoneMessage || !igreja"  color="primary" expand="block">Enviar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-card>
+</div>

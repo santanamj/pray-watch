@@ -1,0 +1,79 @@
+<ion-header>
+  
+  <ion-toolbar>
+    <ion-title class="relogio">Relógio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class='background' [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngIf="agendas">
+    <ion-card-header>
+      <ion-card-title>Seus dias de oração são:</ion-card-title>
+      <div *ngFor="let item of horarios">
+        <ion-list>{{item.dia}}</ion-list>
+      </div>
+    </ion-card-header>
+  
+    
+  
+  </ion-card>
+
+  <ion-card>
+    <div *ngFor="let item of agendas">
+    <ion-card-content >
+      Dia: {{item.dia}} às {{item.hora}}:00 horas
+    
+        
+      <div *ngIf="item.dia == 'Domingo'">
+       <a href="https://chat.whatsapp.com/Lf5et6dKWclIpLVo4tm5Ez">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Segunda-feira'">
+       <a href="https://chat.whatsapp.com/BfEIfkiRsCTBcdMj9bCP9L">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Terça-feira'">
+        <a href="https://chat.whatsapp.com/JBh5SfDMXzDIwrIIXcFMCV">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Quarta-feira'">
+       <a href="https://chat.whatsapp.com/EqRCOONEt2o1DrnfufdsgQ">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Quinta-feira'">
+       <a href="https://chat.whatsapp.com/E7rO6j7CsC6HgpdJOccDBP">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Sexta-feira'">
+       <a href="https://chat.whatsapp.com/JSzqpOA05AE0HEefG0MKpf">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+     <div *ngIf="item.dia == 'Sábado'">
+       <a href="https://chat.whatsapp.com/EbSjJ2zU0BnJbYHNPWGMjW">Entre no grupo de whatsapp do seu dia de oração.</a>
+     </div>
+    
+     <a href="https://res.cloudinary.com/djbfmiwlg/image/upload/v1662307868/Lista_de_pedidos_de_Orac%CC%A7a%CC%83o_e_roteiro_Aprisco_2022.pdf" target="_blank" >
+     Faça download da lista de oração, Clique aqui! 
+     </a>
+ 
+   </ion-card-content>
+   <ion-card class="card-pedido" *ngIf="item?.pedido">
+    <ion-card-subtitle class="card-title-pedido">
+      Meu pedido: {{item?.pedido}}
+       </ion-card-subtitle>
+  </ion-card>
+  </div>
+  </ion-card>
+  
+  <ion-card *ngIf="!agendas">
+    <ion-card-title>Você ainda não tem horário cadastrado</ion-card-title>
+    <ion-button expand="full" [routerLink]="['/dia']" routerLinkActive="router-link-active" > Cadastrar agora</ion-button>
+  </ion-card>
+  <div *ngIf="horarios" class="pedido-form">
+  <form [formGroup]="form" (ngSubmit)="logForm()"> 
+    <ion-label class="pedido">Pedido de oração</ion-label> 
+    <ion-item>
+      
+      <ion-textarea formControlName="descricao" placeholder="Escreva aqui seu pedido de oração"></ion-textarea>
+    </ion-item>
+    <ion-button class="button-pedido" type="submit" >Enviar</ion-button>
+  </form>
+</div>
+</ion-content>

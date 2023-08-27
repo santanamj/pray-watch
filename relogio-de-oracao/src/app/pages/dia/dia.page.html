@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+  </ion-buttons>
+    <ion-title class="title-horas">Escolha o dia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list-header>
+  <span class="title-content"> Selecione o dia que irá orar durante o mês de setembro.  </span>  
+  </ion-list-header >
+  <ion-list *ngFor="let item of dias">  
+   
+    <ion-item  (click)=selected(item) [ngClass]="item?.title === selectedDay ? 'selecteditem' : 'selectedfalse'">
+      <b >{{item.title}}</b></ion-item>   
+    
+  </ion-list>
+  <div *ngIf="!user?.horario">
+  <ion-button type="submit" (click)="chooseHours()" [disabled]="!selectedDay"  color="primary" expand="block">Continuar para escolher o horário</ion-button>
+</div>
+</ion-content>

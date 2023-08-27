@@ -1,0 +1,36 @@
+
+
+<ion-content class='background' [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!user?.name">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="titulo">Entrar</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <div class="form-login">
+  <ion-list >
+  
+    <ion-item>
+      <!-- <input class="phone" [(ngModel)]="phone" [textMask]="{mask: mask}" type="text" placeholder="Número do celular" autocomplete="off"> -->
+      <input class="phone" [(ngModel)]="phone"  type="text" placeholder="Número do celular" autocomplete="off">
+    </ion-item>
+
+    <ion-item>
+     
+      <ion-input [(ngModel)]="password" type="password" placeholder="senha"></ion-input>
+    </ion-item>
+   
+      <ion-button expand="full" (click)="login()"> Entrar</ion-button>
+    
+  </ion-list>
+</div>
+  <p class="naocadastrado">Ainda não tem cadastro?</p>
+  <ion-button expand="full" (click)="criarConta()"> Cadastrar</ion-button>
+</div>
+<div *ngIf="user?.name">
+  <ion-button expand="full" (click)="logout()">Sair</ion-button>
+</div>
+</ion-content>

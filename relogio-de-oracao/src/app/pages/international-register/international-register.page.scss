@@ -1,0 +1,45 @@
+.background {
+  --background: url("/assets/bg.png") 0 0/100% 100% no-repeat
+ }
+page-register {
+    form, input, optgroup, select{
+      border: 0;
+    }
+    .help-block {
+      display: contents;
+      color: #2db7e4;
+      margin: 0 auto !important;
+    }
+    
+  }  
+  .titulo{
+    text-align: center;
+    font-weight: bold;
+}
+  .ion-item{
+    border: none;
+  }
+  .dados-form{
+    border-radius: 4px;
+    margin: 0 auto !important;
+    height: 30px;
+    border: solid 1px #42a6eb;
+  }
+  .select-igrela{
+    width: 210px;
+    margin: 0 auto;
+    border: 1px solid #42a6eb;
+    border-radius: 4px;
+  }  
+  .repeat-senha{
+    margin: 0 auto;
+  }
+  .img-init{
+    width: 250px;
+    margin: 0 auto;
+  }
+  .tel-exist{
+    display: block;
+    margin: auto;
+  }
+  

@@ -1,0 +1,32 @@
+.background {
+  --background: url("/assets/bg.png") 0 0/100% 100% no-repeat
+ }
+ion-toolbar {
+    --color: #ffffff;
+    --background: #0d2c6c;
+  }
+  .relogio{
+      text-align: center;
+      font-weight: bold;
+  }
+  .pedido{
+    padding: 10px;
+    margin-left: 6px;
+  }
+  .button-pedido{
+   
+    margin-left: 16px;
+  }
+  .card-pedido{
+    padding: 10px;
+    background: #91bd78;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .card-title-pedido{
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .pedido-form{
+    padding: 10px;
+  }

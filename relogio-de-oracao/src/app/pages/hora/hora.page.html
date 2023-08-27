@@ -1,0 +1,37 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dia"></ion-back-button>
+  </ion-buttons>
+    <ion-title class="title-horas">Horas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item><h4 class="title-horario">Escolha o horário</h4></ion-item>
+  <ion-grid >
+    <ion-row>     
+      <ion-col  size="3" *ngFor="let item of horas$ | async; let i = index">
+        <div class="choose-hours">
+        <div (click)=selected(item) [ngClass]="item.hora === selectedDay ? 'selecteditem' : 'selectedfalse'">       
+         <button [disabled]="item.status == 'disable'" class="horas-item">  {{item.hora}}</button>    
+        </div>  
+      </div> 
+      </ion-col>
+    </ion-row>
+   
+    
+  </ion-grid>
+  <ion-button type="submit" (click)="addAgenda()" [disabled]="!selectedDay || !day"  color="primary" expand="block">Confirmar horário</ion-button>
+<p></p>
+  <div *ngIf="day" ><b class="day-choose">Dia escolhido: {{day.title}}</b></div>
+  <div *ngFor="let item of horarios">
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>{{item.dia}} </ion-label>
+      </ion-item-divider>
+    
+    </ion-item-group>
+  </div>
+  <div *ngIf="!day" ><b class="day-disable"> Volte a tela anterior e selecione o dia da semana.</b></div>
+</ion-content>

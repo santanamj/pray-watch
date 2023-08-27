@@ -1,0 +1,29 @@
+ion-toolbar {
+  --color: #ffffff;
+  --background: #0d2c6c;
+}
+.selected{
+    background: #2db7e4;
+    
+  }
+  .selecteditem{
+    background: #046788;
+    color: #fff;
+    font-size: 19px;
+    border: 2px solid #046788;
+  }
+  .selectedfalse{
+    background: none;
+    
+  }
+  .title-content{
+    font-size: 19px;
+    text-align: center;
+    margin-left: -15px;
+    padding: 10px;
+  }
+  ion-item{
+    --color:#ffffff;
+    position: relative;
+    --background: #2db7e4;
+  }

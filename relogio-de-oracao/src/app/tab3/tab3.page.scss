@@ -1,0 +1,25 @@
+.background {
+    --background: url("/assets/bg.png") 0 0/100% 100% no-repeat
+   }
+.title{
+    font-weight: bold;
+    text-align: center;
+}
+.nome{
+    font-weight: bold;
+}
+.selecteditem{
+    background: #e6e6e6;;
+    color: #fff;
+    font-size: 19px;    
+  }
+  .selectedfalse{
+    background: none;
+    
+  }
+  .title-orador{
+    color: #fff;
+  }
+  .orador-irmao{
+    padding: 10px;
+  }
